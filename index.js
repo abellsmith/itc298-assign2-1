@@ -31,13 +31,13 @@ var courses = [
 
 app.post('/search', function(req, res) {
     res.type('text/html');
-    var header = "Searching for " + req.body.course;
+    var header = "Searching for Course: " + req.body.course;
     var found = courses.find(function(course) {
         return course.name == req.body.course;
     });
     
     if (found) {
-        res.send(header + "Course: " + found.city);
+        res.send(header + ", City: " + found.city);
     } else {
         res.send(header + 'Not Found');
     }
